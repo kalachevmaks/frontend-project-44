@@ -2,11 +2,17 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  },
   "description": "[![Actions Status](https://github.com/kalachevmaks/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/kalachevmaks/frontend-project-44/actions)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "make": "^0.8.1"
+  }
 }
