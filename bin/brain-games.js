@@ -1,2 +1,4 @@
-console.log('node bin/brain-games.js');
-console.log('Welcome to the Brain Games!');
+#!/usr/bin/env node
+import main from '../src/greeting.js';
+
+main()
