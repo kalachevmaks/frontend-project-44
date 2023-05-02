@@ -11,9 +11,13 @@ export default function evenc() {
     const random = Math.floor(Math.random() * 100) + 1;
     console.log(`Question: ${random}`)
     const name = readlineSync.question('Your answer: ');
-    if (random % 2 === 0 && name === 'yes') {i += 1}
-    else if (random % 2 !== 0 && name === "no") {i += 1}
-    else {return}
+    let reversename = '';
+    if (name === 'yes') {reversename ='no'}
+    else if (name === 'no') {reversename = 'yes'}
+
+    if (random % 2 === 0 && name === 'yes') {i += 1, console.log('Correct!')}
+    else if (random % 2 !== 0 && name === "no") {i += 1,  console.log('Correct!')}
+    else {return console.log(`Answer "${name}" if the number is even, otherwise answer "${reversename}".`)}
   }
   console.log(`Congratulations, ${name}!`)
 }
