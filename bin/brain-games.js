@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import main from '../src/greeting.js';
+import main from '../src/greeting';
 
-main()
+main();
