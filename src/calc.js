@@ -7,7 +7,7 @@ function generateExpression() {
   return `${num1} ${operator} ${num2}`;
 }
 
- function calculate(expression) {
+function calculate(expression) {
   const [num1, operator, num2] = expression.split(' ');
   if (operator === '+') {
     return parseInt(num1) + parseInt(num2);
@@ -27,7 +27,7 @@ export default function calc() {
   let correctAnswers = 0;
   while (correctAnswers < 3) {
     const expression = generateExpression();
-     console.log(`Question: ${expression}`);
+    console.log(`Question: ${expression}`);
     const answer = readlineSync.question('Your answer:');
     const expectedAnswer = calculate(expression);
     if (answer === String(expectedAnswer)) {
@@ -41,4 +41,4 @@ export default function calc() {
   }
 
   console.log(`Congratulations, ${name}!`);
-};
+}
