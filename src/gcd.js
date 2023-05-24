@@ -10,7 +10,9 @@ function generateNumbers() {
 function calculateGCD(num1, num2) {
   while (num2 !== 0) {
     const temp = num2;
+    // eslint-disable-next-line no-param-reassign
     num2 = num1 % num2;
+    // eslint-disable-next-line no-param-reassign
     num1 = temp;
   }
   return num1;
@@ -30,7 +32,7 @@ export default function gcd() {
     const expectedAnswer = calculateGCD(num1, num2);
     if (answer === String(expectedAnswer)) {
       console.log('Correct!');
-      correctAnswers++;
+      correctAnswers += 1;
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`);
       console.log(`Let's try again, ${name}!`);

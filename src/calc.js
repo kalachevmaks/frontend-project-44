@@ -8,14 +8,15 @@ function generateExpression() {
   return `${num1} ${operator} ${num2}`;
 }
 
+// eslint-disable-next-line consistent-return
 function calculate(expression) {
   const [num1, operator, num2] = expression.split(' ');
   if (operator === '+') {
-    return parseInt(num1) + parseInt(num2);
+    return parseInt(num1, 10) + parseInt(num2, 10);
   } if (operator === '-') {
-    return parseInt(num1) - parseInt(num2);
+    return parseInt(num1, 10) - parseInt(num2, 10);
   } if (operator === '*') {
-    return parseInt(num1) * parseInt(num2);
+    return parseInt(num1, 10) * parseInt(num2, 10);
   }
 }
 
@@ -33,7 +34,7 @@ export default function calc() {
     const expectedAnswer = calculate(expression);
     if (answer === String(expectedAnswer)) {
       console.log('Correct!');
-      correctAnswers++;
+      correctAnswers += 1;
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
