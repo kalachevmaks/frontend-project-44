@@ -1,23 +1,48 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
 
-// eslint-disable-next-line consistent-return
-export default function evenc() {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}`);
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  let i = 0;
-  while (i < 3) {
-    const random = Math.floor(Math.random() * 100) + 1;
-    console.log(`Question: ${random}`);
-    // eslint-disable-next-line no-shadow
-    const name = readlineSync.question('Your answer: ');
-    let reversename = '';
-    if (name === 'yes') { reversename = 'no'; } else if (name === 'no') { reversename = 'yes'; }
-
-    // eslint-disable-next-line no-unused-expressions, no-sequences
-    if (random % 2 === 0 && name === 'yes') { i += 1, console.log('Correct!'); } else if (random % 2 !== 0 && name === 'no') { i += 1, console.log('Correct!'); } else { return console.log(`Answer "${name}" if the number is even, otherwise answer "${reversename}".`); }
+function evenOrNot(numb) {
+  const number = numb;
+  if (Math.floor(number / 2) === number / 2) {
+    // Чётное
+    return true;
   }
+  // Нечётное
+  return false;
+}
+
+// eslint-disable-next-line consistent-return
+export default function even() {
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name?: ');
+  console.log(`Hello, ${name}!`);
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  const floor = 0;
+  const top = 100;
+
+  let matches = 0;
+  while (matches <= 2) {
+    let linterAnswer;
+
+    const randomNumbers = `${Math.floor(Math.random() * (top - floor)) + floor}`;
+
+    console.log(`Question: ${randomNumbers}`);
+    const personAnswer = readlineSync.question('Your answer:  ');
+
+    if (evenOrNot(randomNumbers) === true && personAnswer === 'yes') {
+      linterAnswer = ('Correct!');
+    } else if (evenOrNot(randomNumbers) === false && personAnswer === 'no') {
+      linterAnswer = ('Correct!');
+    } else {
+      console.log(`'${personAnswer}' is wrong answer ;(. Correct answer was '${Number(randomNumbers) % 2 === 0 ? 'yes' : 'no'}'.`);
+      return console.log(`Let's try again, ${name}!`);
+    }
+
+    if (linterAnswer !== 'Correct!') { matches = 0; }
+
+    console.log(linterAnswer);
+    matches += 1;
+  }
+
   console.log(`Congratulations, ${name}!`);
 }
