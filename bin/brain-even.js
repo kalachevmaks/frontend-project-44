@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import evenc from '../src/even.js';
+import even from '../src/even.js';
 
-evenc();
+even();
